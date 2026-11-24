@@ -1,0 +1,32 @@
+{% extends 'media_activity/base.html' %}
+{% load static %}
+{% block title %}Edit Profile Picture | PaceBuk{% endblock %}
+{% block body %}
+{% include 'media_activity/profile_nav.html' %}
+<main class="edit-page">
+    <section class="content-card edit-card" aria-labelledby="edit-title">
+        <h1 id="edit-title">Update profile picture</h1>
+        <p class="subtitle">Choose a photo for your PaceBuk profile.</p>
+        {% if profile.profile_picture %}
+            <img class="edit-preview" src="{{ profile.profile_picture.url }}" alt="Current profile picture">
+        {% else %}
+            <img class="edit-preview" src="{% static 'media_activity/images/default-profile.svg' %}" alt="Default profile picture">
+        {% endif %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="field">
+                <label for="{{ form.profile_picture.id_for_label }}">Choose an image</label>
+                {{ form.profile_picture }}
+                {% if form.profile_picture.errors %}
+                    <div class="field-errors" role="alert">{{ form.profile_picture.errors }}</div>
+                {% endif %}
+                <p class="help-text">JPG, PNG, or WebP. Maximum file size: 5 MB.</p>
+            </div>
+            <div class="edit-actions">
+                <a class="button button-secondary" href="{% url 'media_activity:profile' %}">Cancel</a>
+                <button class="button" type="submit">Save changes</button>
+            </div>
+        </form>
+    </section>
+</main>
+{% endblock %}

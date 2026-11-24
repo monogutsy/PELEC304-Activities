@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>PELEC304 Activities</title>
+    <link rel="stylesheet" href="{% static 'portal/home.css' %}">
+</head>
+<body>
+    <main>
+        <header>
+            <p class="eyebrow">PELEC304 / ACTIVITY COLLECTION</p>
+            <h1>Four activities.<br>One place to explore.</h1>
+            <p class="intro">Choose an activity to get started.</p>
+        </header>
+        <nav class="activities" aria-label="Activities">
+            <a class="activity" href="{% url 'login_activity:home' %}">
+                <span class="number">01</span>
+                <h2>Login &amp; Register</h2>
+                <p>Create an account, sign in, and visit your welcome page.</p>
+                <span class="open">Open activity &rarr;</span>
+            </a>
+            <a class="activity" href="{% url 'media_activity:home' %}">
+                <span class="number">02</span>
+                <h2>Static &amp; Media Files</h2>
+                <p>Visit your PaceBuk profile and upload a profile picture.</p>
+                <span class="open">Open activity &rarr;</span>
+            </a>
+            <a class="activity" href="{% url 'students:student_list' %}">
+                <span class="number">03</span>
+                <h2>Student Profiles</h2>
+                <p>Browse a class list and view each student's enrollment profile.</p>
+                <span class="open">Open activity &rarr;</span>
+            </a>
+            <a class="activity" href="{% url 'products:product-list' %}">
+                <span class="number">04</span>
+                <h2>E-commerce API</h2>
+                <p>Explore the product catalog through the browsable API or JSON.</p>
+                <span class="open">Open activity &rarr;</span>
+            </a>
+        </nav>
+        <footer>Use the same account for the login and media activities.</footer>
+    </main>
+</body>
+</html>

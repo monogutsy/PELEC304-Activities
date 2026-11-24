@@ -1,0 +1,25 @@
+{% extends 'login_activity/base.html' %}
+{% block title %}Log in{% endblock %}
+{% block content %}
+    <h1 id="page-title">Welcome back</h1>
+    <p class="subtitle">Enter your details to sign in to your account.</p>
+    <form method="post" action="{% url 'login_activity:login' %}">
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+            <div class="form-errors" role="alert">{{ form.non_field_errors }}</div>
+        {% endif %}
+        <div class="fields">
+            {% for field in form %}
+                <div class="field">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {{ field }}
+                    {% if field.errors %}
+                        <div id="{{ field.auto_id }}_error" class="field-errors">{{ field.errors }}</div>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <button class="button" type="submit">Log in</button>
+    </form>
+    <p class="form-footer">Don't have an account? <a href="{% url 'login_activity:register' %}">Create an account</a></p>
+{% endblock %}

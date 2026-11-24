@@ -1,0 +1,222 @@
+[
+  {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+      "name": "Wireless Mouse",
+      "category": "Electronics",
+      "description": "A compact wireless mouse for everyday computer use.",
+      "price": "399.00",
+      "stock": 25
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+      "name": "USB Keyboard",
+      "category": "Electronics",
+      "description": "A basic wired keyboard for home or school use.",
+      "price": "549.00",
+      "stock": 18
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 3,
+    "fields": {
+      "name": "Bluetooth Speaker",
+      "category": "Electronics",
+      "description": "A small rechargeable speaker that pairs with a phone or tablet.",
+      "price": "899.00",
+      "stock": 12
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 4,
+    "fields": {
+      "name": "USB-C Charging Cable",
+      "category": "Electronics",
+      "description": "A one-meter cable for charging devices with a USB-C port.",
+      "price": "149.00",
+      "stock": 40
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 5,
+    "fields": {
+      "name": "Phone Stand",
+      "category": "Accessories",
+      "description": "A folding stand that holds a phone upright on a desk.",
+      "price": "129.00",
+      "stock": 30
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 6,
+    "fields": {
+      "name": "Canvas Tote Bag",
+      "category": "Accessories",
+      "description": "A cloth bag with long handles and room for books or groceries.",
+      "price": "199.00",
+      "stock": 20
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 7,
+    "fields": {
+      "name": "Stainless Water Bottle",
+      "category": "Accessories",
+      "description": "A 500 mL stainless steel bottle with a screw-top lid.",
+      "price": "349.00",
+      "stock": 15
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 8,
+    "fields": {
+      "name": "Baseball Cap",
+      "category": "Clothing",
+      "description": "A cotton cap with a curved brim and an adjustable back strap.",
+      "price": "249.00",
+      "stock": 22
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 9,
+    "fields": {
+      "name": "Plain Cotton T-Shirt",
+      "category": "Clothing",
+      "description": "A short-sleeved cotton shirt with a crew neck and no print.",
+      "price": "299.00",
+      "stock": 35
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 10,
+    "fields": {
+      "name": "Cotton Socks (3 Pairs)",
+      "category": "Clothing",
+      "description": "Three pairs of ankle socks in black, gray, and white.",
+      "price": "179.00",
+      "stock": 28
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 11,
+    "fields": {
+      "name": "A5 Notebook",
+      "category": "School Supplies",
+      "description": "An A5 notebook with 80 lined pages for class notes.",
+      "price": "89.00",
+      "stock": 60
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 12,
+    "fields": {
+      "name": "Ballpen Set",
+      "category": "School Supplies",
+      "description": "A pack of five black ballpoint pens with removable caps.",
+      "price": "75.00",
+      "stock": 50
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 13,
+    "fields": {
+      "name": "Highlighter Set",
+      "category": "School Supplies",
+      "description": "Four chisel-tip highlighters in yellow, pink, green, and orange.",
+      "price": "135.00",
+      "stock": 32
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 14,
+    "fields": {
+      "name": "Pencil Case",
+      "category": "School Supplies",
+      "description": "A zippered fabric pouch with room for pens and a short ruler.",
+      "price": "159.00",
+      "stock": 24
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 15,
+    "fields": {
+      "name": "Desk Organizer",
+      "category": "Home & Office",
+      "description": "A divided tray for pens, sticky notes, and paper clips.",
+      "price": "279.00",
+      "stock": 16
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 16,
+    "fields": {
+      "name": "LED Desk Lamp",
+      "category": "Home & Office",
+      "description": "A desk lamp with a flexible neck for directing light onto a page.",
+      "price": "699.00",
+      "stock": 10
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 17,
+    "fields": {
+      "name": "Ceramic Coffee Mug",
+      "category": "Home & Office",
+      "description": "A glazed ceramic mug that holds 350 mL of coffee or tea.",
+      "price": "229.00",
+      "stock": 19
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 18,
+    "fields": {
+      "name": "Small Storage Box",
+      "category": "Home & Office",
+      "description": "A clear plastic box with a snap-on lid for storing small items.",
+      "price": "189.00",
+      "stock": 27
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 19,
+    "fields": {
+      "name": "Laptop Sleeve",
+      "category": "Accessories",
+      "description": "A padded zippered sleeve that fits a 14-inch laptop.",
+      "price": "459.00",
+      "stock": 14
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 20,
+    "fields": {
+      "name": "Wired Earphones",
+      "category": "Electronics",
+      "description": "In-ear headphones with a 3.5 mm plug and an inline microphone.",
+      "price": "259.00",
+      "stock": 33
+    }
+  }
+]

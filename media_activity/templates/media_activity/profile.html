@@ -1,0 +1,65 @@
+{% extends 'media_activity/base.html' %}
+{% load static %}
+{% block title %}Profile | PaceBuk{% endblock %}
+{% block body %}
+{% include 'media_activity/profile_nav.html' %}
+<main>
+    {% if messages %}<div class="flash-wrap">
+        {% for message in messages %}<p class="message" role="status">{{ message }}</p>{% endfor %}
+    </div>{% endif %}
+    <section class="profile-shell" aria-labelledby="profile-name">
+        <div class="cover-photo" role="img" aria-label="Blue landscape cover image"></div>
+        <div class="profile-heading">
+            <div class="avatar-wrap">
+                {% if profile.profile_picture %}
+                    <img class="profile-avatar" src="{{ profile.profile_picture.url }}" alt="{{ user.username }}'s profile picture">
+                {% else %}
+                    <img class="profile-avatar" src="{% static 'media_activity/images/default-profile.svg' %}" alt="Default profile picture">
+                {% endif %}
+                <a class="camera-link" href="{% url 'media_activity:edit_profile_picture' %}" aria-label="Edit profile picture">
+                    <img src="{% static 'media_activity/images/camera.svg' %}" alt="">
+                </a>
+            </div>
+            <div class="profile-identity">
+                <h1 id="profile-name">{{ user.get_full_name|default:user.username }}</h1>
+                <p>@{{ user.username }}</p>
+            </div>
+            <a class="button profile-edit-button" href="{% url 'media_activity:edit_profile_picture' %}">Edit profile picture</a>
+        </div>
+        <nav class="profile-tabs" aria-label="Profile sections">
+            <a class="active" href="#about" aria-current="page">About</a>
+            <a href="#photos">Photos</a>
+        </nav>
+    </section>
+    <div class="profile-content">
+        <section class="content-card intro-card" id="about" aria-labelledby="about-title">
+            <h2 id="about-title">Intro</h2>
+            <dl class="intro-list">
+                <div><dt>Full name</dt><dd>{{ user.get_full_name|default:user.username }}</dd></div>
+                <div><dt>Username</dt><dd>@{{ user.username }}</dd></div>
+                <div><dt>Email address</dt><dd>{{ user.email|default:'Not added' }}</dd></div>
+                <div><dt>Joined</dt><dd>{{ user.date_joined|date:'F j, Y' }}</dd></div>
+            </dl>
+        </section>
+        <section class="content-card photos-card" id="photos" aria-labelledby="photos-title">
+            <div class="card-heading">
+                <div>
+                    <h2 id="photos-title">Photos</h2>
+                    <p>Your current profile picture</p>
+                </div>
+                <a class="button button-secondary" href="{% url 'media_activity:edit_profile_picture' %}">
+                    {% if profile.profile_picture %}Change picture{% else %}Upload picture{% endif %}
+                </a>
+            </div>
+            {% if profile.profile_picture %}
+                <img class="photo-preview" src="{{ profile.profile_picture.url }}" alt="Your uploaded profile picture">
+            {% else %}
+                <div class="empty-photo">
+                    <img src="{% static 'media_activity/images/default-profile.svg' %}" alt="">
+                    <p>You haven't uploaded a profile picture yet.</p>
+                </div>
+            {% endif %}
+        </section>
+    </div>
+</main>
+{% endblock %}

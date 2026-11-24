@@ -1,0 +1,20 @@
+{% load static %}
+<header class="site-header">
+    <nav class="topbar" aria-label="Main navigation">
+        <a class="wordmark" href="{% url 'media_activity:profile' %}">pacebuk</a>
+        <div class="topbar-account">
+            <a class="account-link" href="{% url 'media_activity:profile' %}">
+                {% if profile.profile_picture %}
+                    <img class="nav-avatar" src="{{ profile.profile_picture.url }}" alt="">
+                {% else %}
+                    <img class="nav-avatar" src="{% static 'media_activity/images/default-profile.svg' %}" alt="">
+                {% endif %}
+                <span>{{ user.first_name|default:user.username }}</span>
+            </a>
+            <form method="post" action="{% url 'media_activity:logout' %}">
+                {% csrf_token %}
+                <button class="button button-secondary logout-button" type="submit">Log out</button>
+            </form>
+        </div>
+    </nav>
+</header>

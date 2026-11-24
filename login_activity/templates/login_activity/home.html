@@ -1,0 +1,11 @@
+{% extends 'login_activity/base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <p class="system-name">Login Register Form</p>
+    <h1 id="page-title">Welcome, {{ user.first_name|default:user.username }}!</h1>
+    <p class="subtitle">You have successfully logged in. This page is only available to authenticated users.</p>
+    <form method="post" action="{% url 'login_activity:logout' %}">
+        {% csrf_token %}
+        <button class="button" type="submit">Log out</button>
+    </form>
+{% endblock %}

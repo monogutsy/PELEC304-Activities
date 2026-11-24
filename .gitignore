@@ -1,0 +1,25 @@
+# Local data and secrets
+*.sqlite3
+*.sqlite3-*
+*.db
+.env
+.env.*
+pythonanywhere_config.json
+media/
+staticfiles/
+DEPLOYMENT.md
+
+# Python and editors
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.pytest_cache/
+.coverage
+htmlcov/
+.idea/
+.vscode/
+*.log
+.DS_Store
+Thumbs.db
