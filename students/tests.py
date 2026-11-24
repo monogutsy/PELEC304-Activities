@@ -155,7 +155,10 @@ class StudentPagesTests(TestCase):
             self.client.get(self.list_url), 'href="/static/students/css/style.css"'
         )
 
-    def test_homepage_links_to_student_list(self):
+    def test_superuser_homepage_links_to_student_list(self):
+        self.client.force_login(
+            get_user_model().objects.create_superuser(username="staff")
+        )
         self.assertContains(self.client.get("/"), f'href="{self.list_url}"')
 
     def test_activity_login_routes_are_removed(self):

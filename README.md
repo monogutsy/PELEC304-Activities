@@ -8,7 +8,7 @@ student profiles, and read-only product API are preserved.
 
 | Page | Local URL | Django app |
 | --- | --- | --- |
-| Light-mode homepage | http://127.0.0.1:8000/ | `pelec304` |
+| Light-mode homepage (superuser only) | http://127.0.0.1:8000/ | `pelec304` |
 | Login and registration | http://127.0.0.1:8000/login-register/ | `login_activity` |
 | Static/media and PaceBuk profile | http://127.0.0.1:8000/static-media/ | `media_activity` |
 | Student list and profiles | http://127.0.0.1:8000/students/ | `students` |
@@ -19,6 +19,8 @@ The two authentication activities share users and sessions. Register once in
 either activity, then use that account in both. Logging out of either logs you
 out of both. Each activity still uses its own login, registration, and landing
 page design. The student pages and product API remain public, as in the sources.
+The collection homepage is private: anonymous visitors and regular registered
+users receive a standard 404 response at `/`.
 
 ## Run locally on Windows
 
@@ -35,9 +37,12 @@ python -m venv ..\pelec304-venv
 & ..\pelec304-venv\Scripts\python.exe manage.py runserver
 ```
 
-Open http://127.0.0.1:8000/. Create your own activity account in a registration
-form. `createsuperuser` is only needed to manage students and products in admin;
-there are no supplied accounts or passwords. Stop the server with Ctrl+C.
+Open http://127.0.0.1:8000/admin/ and sign in with the superuser created by
+`createsuperuser`, then open http://127.0.0.1:8000/. The same authenticated admin
+session grants access to the private collection homepage. Create regular activity
+accounts through either registration form; those accounts can use the activities
+but receive 404 at `/`. There are no supplied accounts or passwords. Stop the
+server with Ctrl+C.
 
 For macOS/Linux, create `../pelec304-venv` using `python3 -m venv`, activate it
 with `source ../pelec304-venv/bin/activate`, and use `python` for the commands above.

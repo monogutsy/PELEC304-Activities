@@ -8,6 +8,8 @@ pythonanywhere_config.json
 media/
 staticfiles/
 DEPLOYMENT.md
+SOURCES.md
+TESTING.md
 
 # Python and editors
 __pycache__/

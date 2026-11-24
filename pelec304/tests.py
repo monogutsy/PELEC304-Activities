@@ -7,9 +7,25 @@ from media_activity.models import Profile
 
 
 class CombinedProjectTests(TestCase):
-    def test_homepage_links_to_all_four_activities(self):
+    def test_anonymous_visitor_gets_404_at_homepage(self):
+        self.assertEqual(self.client.get(reverse("home")).status_code, 404)
+
+    def test_regular_user_gets_404_at_homepage(self):
+        self.client.force_login(User.objects.create_user(username="regular"))
+        self.assertEqual(self.client.get(reverse("home")).status_code, 404)
+
+    def test_admin_login_allows_superuser_to_open_homepage(self):
+        User.objects.create_superuser(username="staff", password="TestOnly!Pass123")
+        response = self.client.post(reverse("admin:login") + "?next=/", {
+            "username": "staff",
+            "password": "TestOnly!Pass123",
+            "next": "/",
+        })
+        self.assertRedirects(response, reverse("home"))
+
         response = self.client.get(reverse("home"))
         self.assertTemplateUsed(response, "home.html")
+        self.assertIn("no-store", response.headers["Cache-Control"])
         for name in ["login_activity:home", "media_activity:home",
                      "students:student_list", "products:product-list"]:
             url = reverse(name)
